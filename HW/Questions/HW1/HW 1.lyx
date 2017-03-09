@@ -1,0 +1,352 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.54cm
+\topmargin 2.54cm
+\rightmargin 2.54cm
+\bottommargin 2.54cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+MTH 9893 Time Series HW 1
+\end_layout
+
+\begin_layout Standard
+\align center
+Team 1 (Sun, Yu & Pan, Hongchao)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Ornstein-Uhlenbeck process:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+dX_{t}=\lambda\left(\mu-X_{t}\right)dt+\gamma dW_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\lambda,\gamma>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This process could be discretized at times 
+\begin_inset Formula $n\Delta t,\,n=1,2,3,\ldots,\infty$
+\end_inset
+
+ using Euler–Maruyama method.
+ 
+\end_layout
+
+\begin_layout Standard
+Let's set 
+\begin_inset Formula $t=m\Delta t$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+X_{m+1}-X_{m}=\lambda\left(\mu-X_{m}\right)\Delta t+\gamma\Delta W_{m}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\Delta W_{m}=W_{\tau_{m+1}}-W_{\tau_{m}}$
+\end_inset
+
+.
+ It is a normal random variables with expected value zero and variance 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Then we have 
+\begin_inset Formula 
+\begin{align*}
+X_{m+1} & =\lambda\mu\Delta t+\left(1-\lambda\Delta t\right)X_{m}+\gamma\Delta W_{m}\\
+ & =\lambda\mu\Delta t+\left(1-\lambda\Delta t\right)X_{m}+\gamma\sqrt{\Delta t}Z
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $Z$
+\end_inset
+
+ is a normal random variables with expected value zero and variance 1.
+\end_layout
+
+\begin_layout Standard
+By mapping between the parameters of this and AR(1) model, 
+\begin_inset Formula 
+\[
+X_{t}=\alpha+\beta X_{t-1}+\epsilon_{t},\qquad\epsilon_{t}\sim N(0,\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $0<\beta<1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\alpha=\lambda\mu\Delta t,\;\beta=1-\lambda\Delta t$
+\end_inset
+
+, which should be between 0 and 1.
+ And also 
+\begin_inset Formula $\gamma\sqrt{\Delta t}=\sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+3.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $AR\left(2\right)$
+\end_inset
+
+ model is specified as
+\begin_inset Formula 
+\[
+X_{t}=\alpha+\beta_{1}X_{t-1}+\beta_{2}X_{t-2}+\epsilon_{t},\qquad\epsilon_{t}\sim N(0,\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the requirement that 
+\begin_inset Formula $E\left(X_{t}\right)=\mu$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+E\left(X_{t}\right) & =\alpha+\beta_{1}E\left(X_{t-1}\right)+\beta_{2}E\left(X_{t-2}\right)+E\left(\epsilon_{t}\right)\\
+\mu & =\alpha+\beta_{1}\mu+\beta_{2}\mu+0\\
+\mu & =\frac{\alpha}{1-\beta_{1}-\beta_{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is a constant 
+\begin_inset Formula $\Longrightarrow\beta_{1}+\beta_{2}\ne1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Furthermore, we require that the roots of the characteristic polynomial
+ 
+\begin_inset Formula $\psi\left(z\right)=1-\beta_{1}z-\beta_{2}z^{2}$
+\end_inset
+
+ lie outside of the unit circle.
+\end_layout
+
+\begin_layout Standard
+If we examine the reverse characteristic equation 
+\begin_inset Formula $z^{2}-\beta_{1}z-\beta_{2}=0$
+\end_inset
+
+, the roots should lie inside the unit circle.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lambda_{i}=\lvert\frac{\beta_{1}\pm\sqrt{\beta_{1}^{2}+4\beta_{2}}}{2}\rvert<1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\beta_{1}^{2}+4\beta_{2}<0$
+\end_inset
+
+, the roots will be complex, which indicates a stationary status.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+-1<\frac{\beta_{1}-\sqrt{\beta_{1}^{2}+4\beta_{2}}}{2} & <\frac{\beta_{1}+\sqrt{\beta_{1}^{2}+4\beta_{2}}}{2}<1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From left side we have
+\begin_inset Formula 
+\begin{align*}
+\beta_{1}-\sqrt{\beta_{1}^{2}+4\beta_{2}} & >-2\\
+\sqrt{\beta_{1}^{2}+4\beta_{2}} & <\beta_{1}+2\\
+\beta_{2}-\beta_{1} & <1
+\end{align*}
+
+\end_inset
+
+or from the right side
+\begin_inset Formula 
+\begin{align*}
+\beta_{1}+\sqrt{\beta_{1}^{2}+4\beta_{2}} & <2\\
+\sqrt{\beta_{1}^{2}+4\beta_{2}} & <-\beta_{1}+2\\
+\beta_{2}+\beta_{1} & <1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+Also we have 
+\begin_inset Formula $\lambda_{1}\lambda_{2}=\lvert\frac{\beta_{1}^{2}-\beta_{1}^{2}-4\beta_{2}}{4\beta_{2}^{2}}\rvert>1\Longrightarrow1>\lvert\beta_{2}\rvert$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In conclusion, we have 
+\begin_inset Formula $1>\lvert\beta_{2}\rvert,\quad1>\beta_{2}+\beta_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $1>\beta_{2}-\beta_{1}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
